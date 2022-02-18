@@ -1,0 +1,45 @@
+package com.example;
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        System.out.println("Guess Game");
+        int randomNumber;
+        randomNumber = (int) Math.floor(Math.random()*(10-1+1)+1);
+
+        Scanner in = new Scanner(System.in);
+        int guess;
+        for (int i = 1 ; i<= 3 ; i++){
+            System.out.println("Enter guess : ");
+            guess = in.nextInt();
+            if (guess == randomNumber){
+                System.out.println("Bingo! You found the number");
+                break;
+            }
+            else {
+                while (i<3) {
+                    System.out.println("Guess didnt match \nNeed hint?\n1 - Yes\n2 - No" + randomNumber);
+                    int choice;
+                    choice = in.nextInt();
+                    if (choice == 1) {
+                        if (guess < randomNumber) {
+                            System.out.println("Try a bigger number");
+                            break;
+
+
+                        } else {
+                            System.out.println("Try a smaller number");
+                            break;
+
+                        }
+                    } else {
+                        System.out.println("Enter guess Again: ");
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println("Random number generated was "+randomNumber);
+    }
+}
